@@ -19,7 +19,8 @@
                         primaryHover: '#914858',
                         plum: '#3B2228',
                         charcoal: '#2C2627',
-                        muted: '#7C7274'
+                        muted: '#7C7274',
+                        softPink: '#F9EBEA'
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -34,7 +35,7 @@
         h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'Playfair Display', serif; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-nude">
     <!-- Announcement Bar -->
     <div class="bg-primaryHover text-white text-xs md:text-sm py-2 px-4 flex justify-between items-center">
         <div class="flex-1 text-center tracking-wide">🛍️ Frete Grátis para todo o Brasil em compras acima de R$ 199 | Cupom: GLOW15</div>
@@ -74,222 +75,217 @@
     </header>
 
     <!-- Hero -->
-    <section class="relative bg-nude overflow-hidden py-12 md:py-20 px-6 md:px-12 flex flex-col md:flex-row items-center">
+    <section class="w-full bg-nude flex flex-col md:flex-row items-stretch min-h-[600px]">
         <!-- left content -->
-        <div class="md:w-1/2 z-10 max-w-xl">
+        <div class="w-full md:w-1/2 flex flex-col justify-center px-8 md:pl-24 md:pr-12 py-16">
             <span class="text-xs font-bold tracking-[0.2em] text-primary mb-4 block uppercase">Lançamento Exclusivo</span>
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-plum leading-[1.1] mb-6">Pele Radiante.<br>Confiança Real.</h1>
+            <h1 class="text-4xl lg:text-6xl font-serif text-plum leading-tight mb-6">Pele Radiante.<br>Confiança Real.</h1>
             <p class="text-charcoal text-base md:text-lg mb-8 leading-relaxed max-w-md">
                 Cosméticos limpos, veganos e de alta performance que nutrem, realçam e transformam a sua beleza natural todos os dias.
             </p>
-            <button class="bg-primary hover:bg-primaryHover text-white px-8 py-3.5 rounded-sm font-semibold tracking-wide transition-colors inline-flex items-center gap-3 shadow-md hover:shadow-lg">
-                Comprar Agora <i class="fas fa-arrow-right text-sm"></i>
-            </button>
+            <div>
+                <button class="bg-primary hover:bg-primaryHover text-white px-8 py-3.5 rounded-sm font-semibold tracking-wide transition-colors inline-flex items-center gap-3 shadow-md hover:shadow-lg">
+                    Comprar Agora
+                </button>
+            </div>
         </div>
         <!-- right image -->
-        <div class="md:w-1/2 mt-12 md:mt-0 relative w-full h-[450px] md:h-[600px]">
-             <!-- Using a placeholder image from unsplash representing skincare -->
-             <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Velvetique Products" class="w-full h-full object-cover object-center md:rounded-tl-[120px] rounded-bl-[40px] shadow-2xl border-4 border-white/50">
+        <div class="w-full md:w-1/2 h-[400px] md:h-auto">
+             <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Velvetique Products" class="w-full h-full object-cover">
         </div>
     </section>
 
     <!-- Value Pillars -->
-    <section class="bg-white py-10 px-6 md:px-12 border-b border-gray-100 shadow-sm">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="flex items-center gap-4">
+    <section class="bg-white py-10 px-6 md:px-12 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4">
+            <div class="flex items-center gap-3">
                 <div class="text-primary text-3xl"><i class="fas fa-leaf"></i></div>
                 <div>
                     <h4 class="font-bold text-sm text-plum">Ingredientes Limpos</h4>
-                    <p class="text-xs text-muted mt-1">Fórmulas seguras e livres de toxinas.</p>
+                    <p class="text-xs text-muted mt-1">Fórmulas seguras e livres de toxinas</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
                 <div class="text-primary text-3xl"><i class="fas fa-flask"></i></div>
                 <div>
                     <h4 class="font-bold text-sm text-plum">Comprovado Dermatologicamente</h4>
-                    <p class="text-xs text-muted mt-1">Testado e aprovado por especialistas.</p>
+                    <p class="text-xs text-muted mt-1">Testado e aprovado por especialistas</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
                 <div class="text-primary text-3xl"><i class="fas fa-paw"></i></div>
                 <div>
                     <h4 class="font-bold text-sm text-plum">Cruelty Free</h4>
-                    <p class="text-xs text-muted mt-1">100% vegano, sem testes em animais.</p>
+                    <p class="text-xs text-muted mt-1">100% vegano, sem testes</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
                 <div class="text-primary text-3xl"><i class="fas fa-globe-americas"></i></div>
                 <div>
                     <h4 class="font-bold text-sm text-plum">Beleza Sustentável</h4>
-                    <p class="text-xs text-muted mt-1">Embalagens recicláveis e conscientes.</p>
+                    <p class="text-xs text-muted mt-1">Embalagens recicláveis</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Categories -->
-    <section class="py-20 px-6 md:px-12 max-w-7xl mx-auto text-center">
-        <h2 class="font-serif text-3xl md:text-4xl text-plum mb-3 tracking-wider">Explore por Categoria</h2>
-        <div class="w-20 h-[2px] bg-primary mx-auto mb-12"></div>
+    <section class="py-20 px-6 md:px-12 max-w-[1400px] mx-auto text-center bg-nude">
+        <h2 class="font-serif text-2xl lg:text-3xl text-plum mb-3 tracking-wider uppercase">Explore por Categoria</h2>
+        <div class="w-16 h-[2px] bg-primary mx-auto mb-16"></div>
         
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10">
             <!-- Cat 1 -->
-            <a href="#" class="group block">
-                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden bg-white shadow-md border border-nude p-2 group-hover:shadow-xl transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Skincare" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500">
+            <a href="#" class="group block flex flex-col items-center">
+                <div class="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden bg-softPink flex items-center justify-center p-2 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Skincare" class="w-full h-full object-cover rounded-full mix-blend-multiply">
                 </div>
-                <h3 class="mt-5 font-bold text-sm text-plum uppercase tracking-wider">Skincare</h3>
-                <p class="text-[11px] text-muted mt-1">Rosto e séruns</p>
+                <h3 class="mt-6 font-bold text-sm text-plum uppercase tracking-wider">Skincare</h3>
             </a>
             <!-- Cat 2 -->
-            <a href="#" class="group block">
-                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden bg-white shadow-md border border-nude p-2 group-hover:shadow-xl transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Maquiagem" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500">
+            <a href="#" class="group block flex flex-col items-center">
+                <div class="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden bg-softPink flex items-center justify-center p-2 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Makeup" class="w-full h-full object-cover rounded-full mix-blend-multiply">
                 </div>
-                <h3 class="mt-5 font-bold text-sm text-plum uppercase tracking-wider">Maquiagem</h3>
-                <p class="text-[11px] text-muted mt-1">Batons e bases</p>
+                <h3 class="mt-6 font-bold text-sm text-plum uppercase tracking-wider">Maquiagem</h3>
             </a>
             <!-- Cat 3 -->
-            <a href="#" class="group block">
-                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden bg-white shadow-md border border-nude p-2 group-hover:shadow-xl transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cabelos" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500">
+            <a href="#" class="group block flex flex-col items-center">
+                <div class="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden bg-softPink flex items-center justify-center p-2 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Haircare" class="w-full h-full object-cover rounded-full mix-blend-multiply">
                 </div>
-                <h3 class="mt-5 font-bold text-sm text-plum uppercase tracking-wider">Cabelos</h3>
-                <p class="text-[11px] text-muted mt-1">Shampoos e óleos</p>
+                <h3 class="mt-6 font-bold text-sm text-plum uppercase tracking-wider">Cabelos</h3>
             </a>
             <!-- Cat 4 -->
-            <a href="#" class="group block">
-                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden bg-white shadow-md border border-nude p-2 group-hover:shadow-xl transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Corpo" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500">
+            <a href="#" class="group block flex flex-col items-center">
+                <div class="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden bg-softPink flex items-center justify-center p-2 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Bodycare" class="w-full h-full object-cover rounded-full mix-blend-multiply">
                 </div>
-                <h3 class="mt-5 font-bold text-sm text-plum uppercase tracking-wider">Corpo</h3>
-                <p class="text-[11px] text-muted mt-1">Hidratantes e esfoliantes</p>
+                <h3 class="mt-6 font-bold text-sm text-plum uppercase tracking-wider">Corpo</h3>
             </a>
             <!-- Cat 5 -->
-            <a href="#" class="group block">
-                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden bg-white shadow-md border border-nude p-2 group-hover:shadow-xl transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Proteção Solar" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500">
+            <a href="#" class="group block flex flex-col items-center">
+                <div class="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden bg-softPink flex items-center justify-center p-2 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sun Care" class="w-full h-full object-cover rounded-full mix-blend-multiply">
                 </div>
-                <h3 class="mt-5 font-bold text-sm text-plum uppercase tracking-wider">Proteção Solar</h3>
-                <p class="text-[11px] text-muted mt-1">Protetores e géis</p>
+                <h3 class="mt-6 font-bold text-sm text-plum uppercase tracking-wider">Proteção Solar</h3>
             </a>
             <!-- Cat 6 -->
-            <a href="#" class="group block">
-                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden bg-white shadow-md border border-nude p-2 group-hover:shadow-xl transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Kits" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500">
+            <a href="#" class="group block flex flex-col items-center">
+                <div class="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden bg-softPink flex items-center justify-center p-2 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gift Sets" class="w-full h-full object-cover rounded-full mix-blend-multiply">
                 </div>
-                <h3 class="mt-5 font-bold text-sm text-plum uppercase tracking-wider">Kits & Presentes</h3>
-                <p class="text-[11px] text-muted mt-1">Combos exclusivos</p>
+                <h3 class="mt-6 font-bold text-sm text-plum uppercase tracking-wider">Kits & Presentes</h3>
             </a>
         </div>
     </section>
 
     <!-- Promo Banner -->
-    <section class="max-w-7xl mx-auto px-6 md:px-12 py-10">
-        <div class="flex flex-col md:flex-row overflow-hidden shadow-2xl">
-            <div class="md:w-1/2 bg-primary text-white p-12 md:p-20 flex flex-col justify-center items-start">
+    <section class="w-full bg-nude">
+        <div class="flex flex-col md:flex-row w-full max-w-[1600px] mx-auto bg-primary">
+            <div class="w-full md:w-1/2 text-white p-12 md:p-24 flex flex-col justify-center items-start">
                 <span class="text-xs font-bold tracking-[0.2em] uppercase mb-4 opacity-90 border-b border-white/30 pb-2">Oferta por tempo limitado</span>
-                <h2 class="text-4xl md:text-5xl font-serif leading-tight mb-5">Até 30% OFF nos Mais Vendidos</h2>
-                <p class="text-sm md:text-base opacity-90 mb-10 font-light tracking-wide">Ilumine sua pele gastando menos. Garanta o seu kit hoje!</p>
-                <button class="bg-white text-plum hover:bg-nude px-8 py-3.5 rounded-sm font-bold transition-colors uppercase tracking-wider text-sm">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-5">Até 30% OFF<br>nos Mais Vendidos</h2>
+                <p class="text-base md:text-lg opacity-90 mb-10 font-light tracking-wide">Ilumine sua pele gastando menos.<br>Garanta o seu kit hoje!</p>
+                <button class="bg-white text-primary hover:bg-nude px-8 py-4 rounded-sm font-bold transition-colors uppercase tracking-wider text-sm shadow-md">
                     Ver Ofertas
                 </button>
             </div>
-            <div class="md:w-1/2 h-72 md:h-auto">
+            <div class="w-full md:w-1/2 h-[400px] md:h-auto">
                 <img src="https://images.unsplash.com/photo-1617897903246-719242758050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Promo Produtos" class="w-full h-full object-cover">
             </div>
         </div>
     </section>
 
     <!-- Best Sellers -->
-    <section class="py-20 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="flex justify-between items-end mb-10 border-b border-gray-200 pb-4">
+    <section class="py-20 px-6 md:px-12 max-w-[1400px] mx-auto bg-nude">
+        <div class="flex justify-between items-end mb-10 border-b border-gray-300 pb-4">
             <div>
-                <h2 class="font-serif text-3xl md:text-4xl text-plum tracking-wider">Mais Vendidos</h2>
+                <h2 class="font-serif text-2xl lg:text-3xl text-plum tracking-wider uppercase">Mais Vendidos</h2>
             </div>
-            <a href="#" class="text-primary text-sm font-bold uppercase tracking-wider hover:text-primaryHover transition-colors border-b-2 border-transparent hover:border-primaryHover pb-1">Ver Todos <i class="fas fa-arrow-right ml-1"></i></a>
+            <a href="#" class="text-primary text-sm font-bold uppercase tracking-wider hover:text-primaryHover transition-colors">Ver Todos</a>
         </div>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Product 1 -->
-            <div class="bg-white rounded-md p-5 shadow-sm border border-gray-100 relative group flex flex-col hover:shadow-xl transition-shadow duration-300">
-                <button class="absolute top-5 right-5 text-gray-300 hover:text-primary z-10 text-xl transition-colors"><i class="far fa-heart"></i></button>
-                <div class="h-64 mb-6 overflow-hidden relative rounded bg-[#FAFAFA] flex items-center justify-center p-4">
-                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sabonete" class="max-h-full object-contain group-hover:scale-105 transition-transform duration-500 mix-blend-multiply">
+            <div class="bg-white p-6 shadow-sm flex flex-col group border border-gray-100">
+                <div class="relative w-full aspect-square mb-6 overflow-hidden flex items-center justify-center">
+                    <button class="absolute top-2 right-2 text-gray-300 hover:text-primary z-10 text-xl transition-colors"><i class="far fa-heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sabonete" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
                 <div class="text-center flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="font-bold text-sm text-plum mb-2 h-10 overflow-hidden leading-snug">Sabonete Facial de Limpeza Profunda</h3>
-                        <div class="text-primary font-bold text-lg mb-2">R$ 59,90</div>
+                        <h3 class="font-bold text-sm text-plum mb-2 leading-snug">Sabonete Facial de Limpeza Profunda</h3>
+                        <div class="text-plum font-bold text-lg mb-2">R$ 59,90</div>
                         <div class="text-[#E5B25C] text-xs mb-6">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <span class="text-muted ml-1">(125)</span>
                         </div>
                     </div>
-                    <button class="w-full bg-primary hover:bg-primaryHover text-white py-3 rounded-sm font-semibold tracking-wide text-xs transition-colors mt-auto uppercase">
+                    <button class="w-full bg-primary hover:bg-primaryHover text-white py-3 font-semibold tracking-wide text-xs transition-colors mt-auto uppercase">
                         Adicionar ao Carrinho
                     </button>
                 </div>
             </div>
 
             <!-- Product 2 -->
-            <div class="bg-white rounded-md p-5 shadow-sm border border-gray-100 relative group flex flex-col hover:shadow-xl transition-shadow duration-300">
-                <button class="absolute top-5 right-5 text-gray-300 hover:text-primary z-10 text-xl transition-colors"><i class="far fa-heart"></i></button>
-                <div class="h-64 mb-6 overflow-hidden relative rounded bg-[#FAFAFA] flex items-center justify-center p-4">
-                    <img src="https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sérum" class="max-h-full object-contain group-hover:scale-105 transition-transform duration-500 mix-blend-multiply">
+            <div class="bg-white p-6 shadow-sm flex flex-col group border border-gray-100">
+                <div class="relative w-full aspect-square mb-6 overflow-hidden flex items-center justify-center">
+                    <button class="absolute top-2 right-2 text-gray-300 hover:text-primary z-10 text-xl transition-colors"><i class="far fa-heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sérum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
                 <div class="text-center flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="font-bold text-sm text-plum mb-2 h-10 overflow-hidden leading-snug">Sérum Facial Niacinamida 10% + Ácido Hialurônico</h3>
-                        <div class="text-primary font-bold text-lg mb-2">R$ 89,90</div>
+                        <h3 class="font-bold text-sm text-plum mb-2 leading-snug">Sérum Facial Niacinamida 10% + Ácido Hialurônico</h3>
+                        <div class="text-plum font-bold text-lg mb-2">R$ 89,90</div>
                         <div class="text-[#E5B25C] text-xs mb-6">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <span class="text-muted ml-1">(200)</span>
                         </div>
                     </div>
-                    <button class="w-full bg-primary hover:bg-primaryHover text-white py-3 rounded-sm font-semibold tracking-wide text-xs transition-colors mt-auto uppercase">
+                    <button class="w-full bg-primary hover:bg-primaryHover text-white py-3 font-semibold tracking-wide text-xs transition-colors mt-auto uppercase">
                         Adicionar ao Carrinho
                     </button>
                 </div>
             </div>
 
             <!-- Product 3 -->
-            <div class="bg-white rounded-md p-5 shadow-sm border border-gray-100 relative group flex flex-col hover:shadow-xl transition-shadow duration-300">
-                <button class="absolute top-5 right-5 text-gray-300 hover:text-primary z-10 text-xl transition-colors"><i class="far fa-heart"></i></button>
-                <div class="h-64 mb-6 overflow-hidden relative rounded bg-[#FAFAFA] flex items-center justify-center p-4">
-                    <img src="https://images.unsplash.com/photo-1556228720-192a6af4e865?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Hidratante" class="max-h-full object-contain group-hover:scale-105 transition-transform duration-500 mix-blend-multiply">
+            <div class="bg-white p-6 shadow-sm flex flex-col group border border-gray-100">
+                <div class="relative w-full aspect-square mb-6 overflow-hidden flex items-center justify-center">
+                    <button class="absolute top-2 right-2 text-gray-300 hover:text-primary z-10 text-xl transition-colors"><i class="far fa-heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1556228720-192a6af4e865?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Hidratante" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
                 <div class="text-center flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="font-bold text-sm text-plum mb-2 h-10 overflow-hidden leading-snug">Gel Hidratante Hydra Intense</h3>
-                        <div class="text-primary font-bold text-lg mb-2">R$ 74,90</div>
+                        <h3 class="font-bold text-sm text-plum mb-2 leading-snug">Gel Hidratante Hydra Intense</h3>
+                        <div class="text-plum font-bold text-lg mb-2">R$ 74,90</div>
                         <div class="text-[#E5B25C] text-xs mb-6">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <span class="text-muted ml-1">(185)</span>
                         </div>
                     </div>
-                    <button class="w-full bg-primary hover:bg-primaryHover text-white py-3 rounded-sm font-semibold tracking-wide text-xs transition-colors mt-auto uppercase">
+                    <button class="w-full bg-primary hover:bg-primaryHover text-white py-3 font-semibold tracking-wide text-xs transition-colors mt-auto uppercase">
                         Adicionar ao Carrinho
                     </button>
                 </div>
             </div>
 
             <!-- Product 4 -->
-            <div class="bg-white rounded-md p-5 shadow-sm border border-gray-100 relative group flex flex-col hover:shadow-xl transition-shadow duration-300">
-                <button class="absolute top-5 right-5 text-gray-300 hover:text-primary z-10 text-xl transition-colors"><i class="far fa-heart"></i></button>
-                <div class="h-64 mb-6 overflow-hidden relative rounded bg-[#FAFAFA] flex items-center justify-center p-4">
-                    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Batom" class="max-h-full object-contain group-hover:scale-105 transition-transform duration-500 mix-blend-multiply">
+            <div class="bg-white p-6 shadow-sm flex flex-col group border border-gray-100">
+                <div class="relative w-full aspect-square mb-6 overflow-hidden flex items-center justify-center">
+                    <button class="absolute top-2 right-2 text-gray-300 hover:text-primary z-10 text-xl transition-colors"><i class="far fa-heart"></i></button>
+                    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Batom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
                 <div class="text-center flex-grow flex flex-col justify-between">
                     <div>
-                        <h3 class="font-bold text-sm text-plum mb-2 h-10 overflow-hidden leading-snug">Batom Matte Aveludado Velvet</h3>
-                        <div class="text-primary font-bold text-lg mb-2">R$ 49,90</div>
+                        <h3 class="font-bold text-sm text-plum mb-2 leading-snug">Batom Matte Aveludado Velvet</h3>
+                        <div class="text-plum font-bold text-lg mb-2">R$ 49,90</div>
                         <div class="text-[#E5B25C] text-xs mb-6">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             <span class="text-muted ml-1">(98)</span>
                         </div>
                     </div>
-                    <button class="w-full bg-primary hover:bg-primaryHover text-white py-3 rounded-sm font-semibold tracking-wide text-xs transition-colors mt-auto uppercase">
+                    <button class="w-full bg-primary hover:bg-primaryHover text-white py-3 font-semibold tracking-wide text-xs transition-colors mt-auto uppercase">
                         Adicionar ao Carrinho
                     </button>
                 </div>
@@ -298,41 +294,41 @@
     </section>
 
     <!-- Guarantees -->
-    <section class="bg-white py-12 px-6 md:px-12 border-t border-gray-100">
-        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 rounded-full bg-nude flex items-center justify-center text-primary text-2xl mb-4">
-                    <i class="fas fa-truck"></i>
+    <section class="bg-[#F8F1ED] py-10 px-6 md:px-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between gap-6 text-center">
+            <div class="flex items-center gap-4 mx-auto">
+                <i class="fas fa-truck text-2xl text-primary"></i>
+                <div class="text-left">
+                    <h4 class="font-bold text-sm text-plum uppercase tracking-wider mb-0.5">Frete Grátis</h4>
+                    <p class="text-[11px] text-muted">acima de R$ 199</p>
                 </div>
-                <h4 class="font-bold text-sm text-plum uppercase tracking-wider mb-1">Frete Grátis</h4>
-                <p class="text-xs text-muted">acima de R$ 199</p>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 rounded-full bg-nude flex items-center justify-center text-primary text-2xl mb-4">
-                    <i class="fas fa-exchange-alt"></i>
+            <div class="flex items-center gap-4 mx-auto">
+                <i class="fas fa-undo-alt text-2xl text-primary"></i>
+                <div class="text-left">
+                    <h4 class="font-bold text-sm text-plum uppercase tracking-wider mb-0.5">Troca Fácil</h4>
+                    <p class="text-[11px] text-muted">até 30 dias após o recebimento</p>
                 </div>
-                <h4 class="font-bold text-sm text-plum uppercase tracking-wider mb-1">Troca Fácil</h4>
-                <p class="text-xs text-muted">até 30 dias após o recebimento</p>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 rounded-full bg-nude flex items-center justify-center text-primary text-2xl mb-4">
-                    <i class="fas fa-shield-alt"></i>
+            <div class="flex items-center gap-4 mx-auto">
+                <i class="fas fa-shield-alt text-2xl text-primary"></i>
+                <div class="text-left">
+                    <h4 class="font-bold text-sm text-plum uppercase tracking-wider mb-0.5">Pagamento Seguro</h4>
+                    <p class="text-[11px] text-muted">checkout 100% protegido</p>
                 </div>
-                <h4 class="font-bold text-sm text-plum uppercase tracking-wider mb-1">Pagamento Seguro</h4>
-                <p class="text-xs text-muted">checkout 100% protegido</p>
             </div>
-            <div class="flex flex-col items-center p-4">
-                <div class="w-16 h-16 rounded-full bg-nude flex items-center justify-center text-primary text-2xl mb-4">
-                    <i class="fas fa-headset"></i>
+            <div class="flex items-center gap-4 mx-auto">
+                <i class="fas fa-headset text-2xl text-primary"></i>
+                <div class="text-left">
+                    <h4 class="font-bold text-sm text-plum uppercase tracking-wider mb-0.5">Suporte 24/7</h4>
+                    <p class="text-[11px] text-muted">atendimento via WhatsApp</p>
                 </div>
-                <h4 class="font-bold text-sm text-plum uppercase tracking-wider mb-1">Suporte 24/7</h4>
-                <p class="text-xs text-muted">atendimento via WhatsApp</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-plum text-white pt-20 pb-8 px-6 md:px-12 border-t-[8px] border-primary">
+    <footer class="bg-plum text-white pt-20 pb-8 px-6 md:px-12">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <!-- Col 1 -->
             <div>
