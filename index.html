@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velvetique Beauty | Cosméticos & Skincare</title>
+    <title>Velvetique Beauty | Cosméticos & Skincare Luxury</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +16,9 @@
                     colors: {
                         nude:    '#FDF8F6',
                         cream:   '#FAF5F2',
-                        primary: '#A85B6C',
-                        'primary-dark': '#914858',
+                        blush:   '#FCEEF0',
+                        primary: '#B5637A',
+                        'primary-dark': '#9A4F65',
                         plum:    '#3B2228',
                         charcoal:'#2C2627',
                         muted:   '#8C7E80',
@@ -27,18 +28,6 @@
                     fontFamily: {
                         serif: ['"Playfair Display"', 'Georgia', 'serif'],
                         sans:  ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-                    },
-                    fontSize: {
-                        '2xs': ['10px', '14px'],
-                        'xs':  ['12px', '16px'],
-                        'sm':  ['14px', '20px'],
-                        'base':['16px', '24px'],
-                        'lg':  ['18px', '28px'],
-                        'xl':  ['20px', '28px'],
-                        '2xl': ['24px', '32px'],
-                        '3xl': ['30px', '36px'],
-                        '4xl': ['36px', '42px'],
-                        '5xl': ['42px', '50px'],
                     }
                 }
             }
@@ -46,446 +35,533 @@
     </script>
     <style>
         *, *::before, *::after { box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fff; color: #2C2627; -webkit-font-smoothing: antialiased; }
-        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
-        /* Product card hover */
-        .pcard .pimg { transition: transform .35s ease; }
-        .pcard:hover .pimg { transform: scale(1.05); }
-        .pcard .cart-icon { opacity: 0; transition: opacity .25s; }
-        .pcard:hover .cart-icon { opacity: 1; }
-        /* Smooth hover underline for nav */
-        nav a { position: relative; }
-        nav a::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:1.5px; background:#A85B6C; transition:width .25s; }
-        nav a:hover::after { width:100%; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background:#fff; color:#2C2627; -webkit-font-smoothing:antialiased; }
+        .serif { font-family:'Playfair Display',Georgia,serif; }
+        .pcard .pimg { transition:transform .35s ease; }
+        .pcard:hover .pimg { transform:scale(1.05); }
+        .pcard .wish { transition:opacity .2s; }
+        /* Modal */
+        .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:9999; overflow-y:auto; }
+        .modal.open { display:flex; align-items:flex-start; justify-content:center; padding:2rem 1rem; }
+        .modal-box { background:#fff; border-radius:.5rem; max-width:800px; width:100%; padding:2.5rem; position:relative; margin:auto; }
+        /* Cookie bar */
+        #cookie-bar { display:none; }
+        #cookie-bar.show { display:flex; }
     </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      ANNOUNCEMENT BAR
-═══════════════════════════════════════════ -->
-<div class="bg-plum text-white text-xs font-medium py-2.5 text-center tracking-wide">
-    🌸 Frete Grátis em compras acima de R$&nbsp;199 &nbsp;|&nbsp; Use o cupom <strong>GLOW15</strong> e ganhe 15% OFF
-    <span class="hidden md:inline ml-6 float-right mr-6">
-        <a href="#" class="mx-1.5 opacity-70 hover:opacity-100"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="mx-1.5 opacity-70 hover:opacity-100"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="mx-1.5 opacity-70 hover:opacity-100"><i class="fab fa-youtube"></i></a>
-    </span>
+══════════════════════════════════════════════ -->
+<div class="bg-plum text-white text-[11px] font-medium py-2">
+    <div class="max-w-screen-xl mx-auto px-6 flex items-center justify-between">
+        <span>🚚 Frete Grátis em pedidos acima de R$&nbsp;199</span>
+        <span class="hidden md:block">🎁 15% OFF no 1º pedido &nbsp;|&nbsp; Cupom: <strong>VELVET15</strong></span>
+        <span class="hidden md:flex gap-5">
+            <a href="#" class="hover:text-soft-pink transition-colors">Ajuda &amp; FAQ</a>
+            <a href="#" class="hover:text-soft-pink transition-colors">Rastrear Pedido</a>
+        </span>
+    </div>
 </div>
 
-<!-- ═══════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      HEADER
-═══════════════════════════════════════════ -->
+══════════════════════════════════════════════ -->
 <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
-    <div class="max-w-screen-xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between gap-6">
-        <!-- Logo -->
-        <a href="#" class="flex-shrink-0 leading-none text-center">
-            <div class="font-serif text-2xl font-bold tracking-[.1em] text-plum leading-none">VELVETIQUE</div>
-            <div class="text-[8px] font-sans tracking-[.45em] text-muted mt-0.5">BEAUTY</div>
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-10 h-[62px] flex items-center justify-between gap-6">
+        <a href="#" class="flex-shrink-0 text-center leading-none">
+            <div class="serif text-[22px] font-bold tracking-[.12em] text-plum leading-none">VELVETIQUE</div>
+            <div class="text-[8px] tracking-[.45em] text-muted mt-0.5">BEAUTY</div>
         </a>
-        <!-- Nav -->
-        <nav class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-widest text-charcoal">
-            <a href="#" class="text-primary">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">Best Sellers</a>
-            <a href="#">New Arrivals</a>
-            <a href="#">Skincare</a>
-            <a href="#">About Us</a>
-            <a href="#">Blog</a>
+        <nav class="hidden lg:flex items-center gap-6 text-[11px] font-bold uppercase tracking-widest text-charcoal">
+            <a href="#" class="text-primary hover:text-primary-dark">Novidades</a>
+            <span class="relative group">
+                <a href="#" class="hover:text-primary flex items-center gap-1">Makeup <i class="fas fa-chevron-down text-[8px] opacity-40"></i></a>
+            </span>
+            <span class="relative group">
+                <a href="#" class="hover:text-primary flex items-center gap-1">Skincare <i class="fas fa-chevron-down text-[8px] opacity-40"></i></a>
+            </span>
+            <a href="#" class="hover:text-primary">Lábios</a>
+            <a href="#" class="hover:text-primary">Fragrâncias</a>
+            <a href="#" class="hover:text-primary">Marcas</a>
+            <a href="#" class="text-primary font-black">Sale</a>
         </nav>
-        <!-- Icons -->
-        <div class="flex items-center gap-5 text-charcoal text-[17px]">
-            <button class="hover:text-primary transition-colors" aria-label="Search"><i class="fas fa-search"></i></button>
-            <button class="hover:text-primary transition-colors hidden sm:block" aria-label="Account"><i class="far fa-user"></i></button>
-            <button class="hover:text-primary transition-colors relative" aria-label="Cart">
+        <div class="flex items-center gap-4 text-charcoal text-[17px]">
+            <button class="hover:text-primary transition-colors"><i class="fas fa-search"></i></button>
+            <button class="hover:text-primary transition-colors hidden sm:block"><i class="far fa-user"></i></button>
+            <button class="hover:text-primary transition-colors hidden sm:block"><i class="far fa-heart"></i></button>
+            <button class="hover:text-primary transition-colors relative">
                 <i class="fas fa-shopping-bag"></i>
-                <span class="absolute -top-1.5 -right-2 bg-primary text-white text-[9px] font-black rounded-full w-4 h-4 flex items-center justify-center leading-none">0</span>
+                <span class="absolute -top-1.5 -right-2 bg-primary text-white text-[9px] font-black rounded-full w-4 h-4 flex items-center justify-center">0</span>
             </button>
         </div>
     </div>
 </header>
 
-<!-- ═══════════════════════════════════════════
+<!-- ══════════════════════════════════════════════
      HERO BANNER
-═══════════════════════════════════════════ -->
-<section class="w-full bg-nude overflow-hidden">
-    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center min-h-[460px] lg:min-h-[520px]">
-        <!-- Text Block — 45% -->
-        <div class="w-full md:w-[45%] px-8 md:px-12 lg:px-16 py-12 md:py-0 flex flex-col justify-center">
-            <span class="text-xs font-bold tracking-[.22em] text-primary uppercase mb-4 block">New Collection</span>
-            <h1 class="font-serif text-4xl lg:text-5xl text-plum leading-[1.08] mb-5 font-medium">
-                Enhance<br>Your Natural<br>Beauty.
+══════════════════════════════════════════════ -->
+<section class="w-full bg-blush overflow-hidden">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-stretch min-h-[380px] lg:min-h-[440px]">
+        <!-- LEFT: Text -->
+        <div class="w-full md:w-[44%] flex flex-col justify-center px-8 md:px-12 lg:px-16 py-14 md:py-0">
+            <span class="text-[11px] font-bold tracking-[.22em] text-primary uppercase mb-4 block">New Collection</span>
+            <h1 class="serif text-[42px] md:text-[50px] lg:text-[56px] text-plum leading-[1.06] font-medium mb-2">
+                Beauty that
             </h1>
-            <p class="text-sm text-muted mb-7 leading-relaxed max-w-xs">
-                High-performance formulas.<br>Clean ingredients. Effortless you.
+            <h1 class="serif text-[42px] md:text-[50px] lg:text-[56px] text-primary leading-[1.06] italic font-medium mb-5">
+                Defines You
+            </h1>
+            <p class="text-[14px] text-muted mb-7 leading-relaxed">
+                High-performance cosmetics.<br>Luxurious results.
             </p>
-            <a href="#" class="inline-flex items-center gap-2.5 bg-plum hover:bg-charcoal text-white text-xs font-bold tracking-[.18em] uppercase px-7 py-3 transition-colors w-fit">
-                Shop Now <i class="fas fa-arrow-right text-[10px]"></i>
-            </a>
-            <!-- Feature badges -->
-            <div class="flex items-center gap-6 mt-9 text-2xs text-muted border-t border-gray-200 pt-6">
-                <div class="flex items-center gap-2"><i class="fas fa-leaf text-plum text-sm"></i><span class="font-semibold text-plum leading-tight">Clean<br>Ingredients</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-heart text-plum text-sm"></i><span class="font-semibold text-plum leading-tight">Cruelty<br>Free</span></div>
-                <div class="flex items-center gap-2"><i class="fas fa-flask text-plum text-sm"></i><span class="font-semibold text-plum leading-tight">Dermatologically<br>Tested</span></div>
+            <div class="flex flex-wrap gap-3">
+                <a href="#" class="bg-primary hover:bg-primary-dark text-white text-[11px] font-bold uppercase tracking-widest px-7 py-3 transition-colors">
+                    Shop Now
+                </a>
+                <a href="#" class="border border-plum text-plum hover:bg-plum hover:text-white text-[11px] font-bold uppercase tracking-widest px-7 py-3 transition-colors">
+                    Explore Collection
+                </a>
+            </div>
+            <!-- Slider dots -->
+            <div class="flex gap-2 mt-7">
+                <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-primary/30"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-primary/30"></span>
             </div>
         </div>
-        <!-- Image Block — 55% -->
-        <div class="w-full md:w-[55%] h-[320px] md:h-[460px] lg:h-[520px] relative flex-shrink-0">
-            <img src="images/hero.jpg" alt="Velvetique Beauty Collection" class="w-full h-full object-cover object-center">
-            <!-- Free Shipping Badge -->
-            <div class="absolute bottom-6 right-6 bg-white rounded-full w-[76px] h-[76px] flex flex-col items-center justify-center text-center shadow-md border border-gray-100">
-                <i class="fas fa-truck text-plum text-base mb-0.5"></i>
-                <span class="text-[7.5px] font-bold text-plum leading-tight uppercase">Free<br>Shipping<br><span class="text-primary">R$199+</span></span>
-            </div>
+        <!-- RIGHT: Image -->
+        <div class="w-full md:w-[56%] h-[300px] md:h-auto">
+            <img src="images/hero_new.jpg" alt="Velvetique Beauty Collection — paleta, batom, sérum e pó compacto sobre mármore com peônias" class="w-full h-full object-cover object-center">
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     CATEGORY STRIP
-═══════════════════════════════════════════ -->
-<section class="bg-white border-y border-gray-100 py-8">
+<!-- ══════════════════════════════════════════════
+     VALUE PROPS BAR
+══════════════════════════════════════════════ -->
+<section class="bg-white border-y border-gray-100 py-5">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-10 flex flex-wrap justify-center lg:justify-between gap-6">
+        <div class="flex items-center gap-3">
+            <i class="fas fa-truck text-plum text-xl w-6 text-center"></i>
+            <div><div class="text-[13px] font-bold text-plum">Frete Grátis</div><div class="text-[11px] text-muted">Em pedidos acima de R$&nbsp;199</div></div>
+        </div>
+        <div class="flex items-center gap-3">
+            <i class="fas fa-undo-alt text-plum text-xl w-6 text-center"></i>
+            <div><div class="text-[13px] font-bold text-plum">Devolução Fácil</div><div class="text-[11px] text-muted">30 dias sem burocracia</div></div>
+        </div>
+        <div class="flex items-center gap-3">
+            <i class="fas fa-lock text-plum text-xl w-6 text-center"></i>
+            <div><div class="text-[13px] font-bold text-plum">Pagamento Seguro</div><div class="text-[11px] text-muted">100% checkout seguro</div></div>
+        </div>
+        <div class="flex items-center gap-3">
+            <i class="fas fa-headset text-plum text-xl w-6 text-center"></i>
+            <div><div class="text-[13px] font-bold text-plum">Suporte ao Cliente</div><div class="text-[11px] text-muted">Estamos aqui para ajudar</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SHOP BY CATEGORY
+══════════════════════════════════════════════ -->
+<section class="py-14 bg-white">
     <div class="max-w-screen-xl mx-auto px-6 lg:px-10">
-        <div class="flex flex-wrap justify-center items-start gap-8 lg:gap-16">
-            <!-- Each category -->
+        <h2 class="text-[13px] font-black text-plum uppercase tracking-[.25em] text-center mb-10">Shop by Category</h2>
+        <div class="flex flex-wrap justify-center gap-8 lg:gap-14">
             <a href="#" class="group flex flex-col items-center gap-3 w-24">
-                <div class="w-16 h-16 rounded-full border-2 border-gray-200 group-hover:border-primary group-hover:bg-soft-pink flex items-center justify-center transition-all duration-200">
-                    <i class="fas fa-palette text-2xl text-muted group-hover:text-primary transition-colors"></i>
+                <div class="w-[90px] h-[90px] rounded-full overflow-hidden bg-blush group-hover:shadow-lg transition-shadow border-2 border-transparent group-hover:border-primary">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=180&q=80" class="w-full h-full object-cover" alt="Makeup">
                 </div>
-                <div class="text-center">
-                    <div class="text-sm font-bold text-plum tracking-wide">Makeup</div>
-                    <div class="text-2xs text-muted mt-0.5">Face, Lips, Eyes</div>
-                </div>
+                <span class="text-[12px] font-bold text-plum uppercase tracking-wide">Makeup</span>
             </a>
             <a href="#" class="group flex flex-col items-center gap-3 w-24">
-                <div class="w-16 h-16 rounded-full border-2 border-gray-200 group-hover:border-primary group-hover:bg-soft-pink flex items-center justify-center transition-all duration-200">
-                    <i class="fas fa-seedling text-2xl text-muted group-hover:text-primary transition-colors"></i>
+                <div class="w-[90px] h-[90px] rounded-full overflow-hidden bg-blush group-hover:shadow-lg transition-shadow border-2 border-transparent group-hover:border-primary">
+                    <img src="https://images.unsplash.com/photo-1570194065650-d99fb4a38c5a?w=180&q=80" class="w-full h-full object-cover" alt="Skincare">
                 </div>
-                <div class="text-center">
-                    <div class="text-sm font-bold text-plum tracking-wide">Skincare</div>
-                    <div class="text-2xs text-muted mt-0.5">Nourish &amp; Glow</div>
-                </div>
+                <span class="text-[12px] font-bold text-plum uppercase tracking-wide">Skincare</span>
             </a>
             <a href="#" class="group flex flex-col items-center gap-3 w-24">
-                <div class="w-16 h-16 rounded-full border-2 border-gray-200 group-hover:border-primary group-hover:bg-soft-pink flex items-center justify-center transition-all duration-200">
-                    <i class="fas fa-paint-brush text-2xl text-muted group-hover:text-primary transition-colors"></i>
+                <div class="w-[90px] h-[90px] rounded-full overflow-hidden bg-blush group-hover:shadow-lg transition-shadow border-2 border-transparent group-hover:border-primary">
+                    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=180&q=80" class="w-full h-full object-cover" alt="Lábios">
                 </div>
-                <div class="text-center">
-                    <div class="text-sm font-bold text-plum tracking-wide">Brushes</div>
-                    <div class="text-2xs text-muted mt-0.5">Tools for Perfection</div>
-                </div>
+                <span class="text-[12px] font-bold text-plum uppercase tracking-wide">Lábios</span>
             </a>
             <a href="#" class="group flex flex-col items-center gap-3 w-24">
-                <div class="w-16 h-16 rounded-full border-2 border-gray-200 group-hover:border-primary group-hover:bg-soft-pink flex items-center justify-center transition-all duration-200">
-                    <i class="fas fa-spray-can text-2xl text-muted group-hover:text-primary transition-colors"></i>
+                <div class="w-[90px] h-[90px] rounded-full overflow-hidden bg-blush group-hover:shadow-lg transition-shadow border-2 border-transparent group-hover:border-primary">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=180&q=80" class="w-full h-full object-cover" alt="Pincéis">
                 </div>
-                <div class="text-center">
-                    <div class="text-sm font-bold text-plum tracking-wide">Fragrance</div>
-                    <div class="text-2xs text-muted mt-0.5">Scent Your Story</div>
-                </div>
+                <span class="text-[12px] font-bold text-plum uppercase tracking-wide">Pincéis</span>
             </a>
             <a href="#" class="group flex flex-col items-center gap-3 w-24">
-                <div class="w-16 h-16 rounded-full border-2 border-gray-200 group-hover:border-primary group-hover:bg-soft-pink flex items-center justify-center transition-all duration-200">
-                    <i class="fas fa-gift text-2xl text-muted group-hover:text-primary transition-colors"></i>
+                <div class="w-[90px] h-[90px] rounded-full overflow-hidden bg-blush group-hover:shadow-lg transition-shadow border-2 border-transparent group-hover:border-primary">
+                    <img src="https://images.unsplash.com/photo-1583209814683-c023dd293cc6?w=180&q=80" class="w-full h-full object-cover" alt="Fragrâncias">
                 </div>
-                <div class="text-center">
-                    <div class="text-sm font-bold text-plum tracking-wide">Gift Sets</div>
-                    <div class="text-2xs text-muted mt-0.5">Perfectly Curated</div>
+                <span class="text-[12px] font-bold text-plum uppercase tracking-wide">Fragrâncias</span>
+            </a>
+            <a href="#" class="group flex flex-col items-center gap-3 w-24">
+                <div class="w-[90px] h-[90px] rounded-full overflow-hidden bg-blush group-hover:shadow-lg transition-shadow border-2 border-transparent group-hover:border-primary">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=180&q=80" class="w-full h-full object-cover" alt="Kits">
                 </div>
+                <span class="text-[12px] font-bold text-plum uppercase tracking-wide">Kits &amp; Sets</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     BEST SELLERS
-═══════════════════════════════════════════ -->
-<section class="bg-white py-14 lg:py-16">
+<!-- ══════════════════════════════════════════════
+     BEST SELLERS — 6 produtos
+══════════════════════════════════════════════ -->
+<section class="py-14 bg-nude">
     <div class="max-w-screen-xl mx-auto px-6 lg:px-10">
-        <!-- Header row -->
         <div class="flex items-center justify-between mb-8">
-            <h2 class="text-sm font-black text-plum uppercase tracking-[.2em]">Best Sellers</h2>
-            <a href="#" class="flex items-center gap-2 text-xs font-bold text-plum uppercase tracking-widest hover:text-primary transition-colors">
-                View All <i class="fas fa-arrow-right text-[10px]"></i>
-            </a>
+            <h2 class="text-[13px] font-black text-plum uppercase tracking-[.2em]">Best Sellers</h2>
+            <a href="#" class="flex items-center gap-2 text-[11px] font-bold text-plum uppercase tracking-widest hover:text-primary transition-colors">View All <i class="fas fa-arrow-right text-[9px]"></i></a>
         </div>
-        <!-- 5-column product grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-5">
 
-            <!-- Card 1 -->
+            <!-- Produto 1 -->
             <div class="pcard group flex flex-col">
-                <div class="relative rounded-lg overflow-hidden bg-cream mb-3.5" style="aspect-ratio:1/1">
-                    <img src="images/prod1.jpg" alt="Sérum Radiance" class="pimg w-full h-full object-contain p-5">
-                    <button class="cart-icon absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-plum hover:bg-plum hover:text-white transition-all">
-                        <i class="fas fa-shopping-bag text-xs"></i>
-                    </button>
+                <div class="relative rounded-lg overflow-hidden bg-white mb-3" style="aspect-ratio:3/4">
+                    <button class="wish absolute top-2.5 right-2.5 z-10 text-gray-300 hover:text-primary transition-colors"><i class="far fa-heart text-base"></i></button>
+                    <img src="images/prod1.jpg" alt="Sérum Radiance" class="pimg w-full h-full object-contain p-4">
                 </div>
-                <p class="text-sm font-semibold text-plum leading-snug mb-2">Sérum Facial Radiance SPF 20</p>
-                <div class="flex items-center gap-0.5 text-gold text-xs mb-2">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <span class="text-muted text-2xs ml-1.5">(1.280)</span>
-                </div>
-                <p class="text-base font-bold text-plum">R$&nbsp;129,00</p>
+                <p class="text-[12px] font-semibold text-plum leading-snug mb-1">Sérum Facial Radiance SPF 20</p>
+                <div class="flex items-center gap-0.5 text-gold text-[10px] mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-muted ml-1 text-[10px]">(1.280)</span></div>
+                <p class="text-[14px] font-bold text-plum">R$&nbsp;129,00</p>
             </div>
 
-            <!-- Card 2 -->
+            <!-- Produto 2 -->
             <div class="pcard group flex flex-col">
-                <div class="relative rounded-lg overflow-hidden bg-cream mb-3.5" style="aspect-ratio:1/1">
-                    <img src="images/prod2.jpg" alt="Batom Matte" class="pimg w-full h-full object-contain p-5">
-                    <button class="cart-icon absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-plum hover:bg-plum hover:text-white transition-all">
-                        <i class="fas fa-shopping-bag text-xs"></i>
-                    </button>
+                <div class="relative rounded-lg overflow-hidden bg-white mb-3" style="aspect-ratio:3/4">
+                    <button class="wish absolute top-2.5 right-2.5 z-10 text-gray-300 hover:text-primary transition-colors"><i class="far fa-heart text-base"></i></button>
+                    <img src="images/prod2.jpg" alt="Batom Matte" class="pimg w-full h-full object-contain p-4">
                 </div>
-                <p class="text-sm font-semibold text-plum leading-snug mb-2">Batom Matte Aveludado</p>
-                <div class="flex items-center gap-0.5 text-gold text-xs mb-2">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <span class="text-muted text-2xs ml-1.5">(987)</span>
-                </div>
-                <p class="text-base font-bold text-plum">R$&nbsp;69,00</p>
+                <p class="text-[12px] font-semibold text-plum leading-snug mb-1">Batom Matte Volume Lift</p>
+                <div class="flex items-center gap-0.5 text-gold text-[10px] mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-muted ml-1 text-[10px]">(987)</span></div>
+                <p class="text-[14px] font-bold text-plum">R$&nbsp;69,00</p>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Produto 3 -->
             <div class="pcard group flex flex-col">
-                <div class="relative rounded-lg overflow-hidden bg-cream mb-3.5" style="aspect-ratio:1/1">
-                    <img src="images/prod3.jpg" alt="Paleta Glam" class="pimg w-full h-full object-contain p-5">
-                    <button class="cart-icon absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-plum hover:bg-plum hover:text-white transition-all">
-                        <i class="fas fa-shopping-bag text-xs"></i>
-                    </button>
+                <div class="relative rounded-lg overflow-hidden bg-white mb-3" style="aspect-ratio:3/4">
+                    <button class="wish absolute top-2.5 right-2.5 z-10 text-gray-300 hover:text-primary transition-colors"><i class="far fa-heart text-base"></i></button>
+                    <img src="images/prod3.jpg" alt="Batom Velvet" class="pimg w-full h-full object-contain p-4">
                 </div>
-                <p class="text-sm font-semibold text-plum leading-snug mb-2">Paleta de Sombras Soft Glam</p>
-                <div class="flex items-center gap-0.5 text-gold text-xs mb-2">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <span class="text-muted text-2xs ml-1.5">(856)</span>
-                </div>
-                <p class="text-base font-bold text-plum">R$&nbsp;149,00</p>
+                <p class="text-[12px] font-semibold text-plum leading-snug mb-1">Batom Velvet Matte Rosa</p>
+                <div class="flex items-center gap-0.5 text-gold text-[10px] mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-muted ml-1 text-[10px]">(741)</span></div>
+                <p class="text-[14px] font-bold text-plum">R$&nbsp;59,00</p>
             </div>
 
-            <!-- Card 4 -->
+            <!-- Produto 4 -->
             <div class="pcard group flex flex-col">
-                <div class="relative rounded-lg overflow-hidden bg-cream mb-3.5" style="aspect-ratio:1/1">
-                    <img src="https://images.unsplash.com/photo-1631214524020-3c69f40b2e07?w=400&q=80" alt="Máscara Volume" class="pimg w-full h-full object-contain p-5">
-                    <button class="cart-icon absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-plum hover:bg-plum hover:text-white transition-all">
-                        <i class="fas fa-shopping-bag text-xs"></i>
-                    </button>
+                <div class="relative rounded-lg overflow-hidden bg-white mb-3" style="aspect-ratio:3/4">
+                    <button class="wish absolute top-2.5 right-2.5 z-10 text-gray-300 hover:text-primary transition-colors"><i class="far fa-heart text-base"></i></button>
+                    <img src="https://images.unsplash.com/photo-1631214524020-3c69f40b2e07?w=300&q=80" alt="Paleta Glam" class="pimg w-full h-full object-contain p-4">
                 </div>
-                <p class="text-sm font-semibold text-plum leading-snug mb-2">Máscara de Cílios Lash Elevate</p>
-                <div class="flex items-center gap-0.5 text-gold text-xs mb-2">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    <span class="text-muted text-2xs ml-1.5">(754)</span>
-                </div>
-                <p class="text-base font-bold text-plum">R$&nbsp;59,00</p>
+                <p class="text-[12px] font-semibold text-plum leading-snug mb-1">Paleta Eyeshadow Soft Glam</p>
+                <div class="flex items-center gap-0.5 text-gold text-[10px] mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-muted ml-1 text-[10px]">(856)</span></div>
+                <p class="text-[14px] font-bold text-plum">R$&nbsp;149,00</p>
             </div>
 
-            <!-- Card 5 -->
+            <!-- Produto 5 -->
             <div class="pcard group flex flex-col">
-                <div class="relative rounded-lg overflow-hidden bg-cream mb-3.5" style="aspect-ratio:1/1">
-                    <img src="images/promo.jpg" alt="Sérum Glow Boost" class="pimg w-full h-full object-contain p-5">
-                    <button class="cart-icon absolute bottom-2.5 right-2.5 w-8 h-8 rounded-full bg-white shadow border border-gray-100 flex items-center justify-center text-plum hover:bg-plum hover:text-white transition-all">
-                        <i class="fas fa-shopping-bag text-xs"></i>
-                    </button>
+                <div class="relative rounded-lg overflow-hidden bg-white mb-3" style="aspect-ratio:3/4">
+                    <button class="wish absolute top-2.5 right-2.5 z-10 text-gray-300 hover:text-primary transition-colors"><i class="far fa-heart text-base"></i></button>
+                    <img src="images/promo.jpg" alt="Hydra Serum" class="pimg w-full h-full object-contain p-4">
                 </div>
-                <p class="text-sm font-semibold text-plum leading-snug mb-2">Sérum Glow Boost</p>
-                <div class="flex items-center gap-0.5 text-gold text-xs mb-2">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <span class="text-muted text-2xs ml-1.5">(643)</span>
+                <p class="text-[12px] font-semibold text-plum leading-snug mb-1">Hydra Glow Serum</p>
+                <div class="flex items-center gap-0.5 text-gold text-[10px] mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="text-muted ml-1 text-[10px]">(583)</span></div>
+                <p class="text-[14px] font-bold text-plum">R$&nbsp;109,00</p>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="pcard group flex flex-col">
+                <div class="relative rounded-lg overflow-hidden bg-white mb-3" style="aspect-ratio:3/4">
+                    <button class="wish absolute top-2.5 right-2.5 z-10 text-gray-300 hover:text-primary transition-colors"><i class="far fa-heart text-base"></i></button>
+                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=300&q=80" alt="Setting Spray" class="pimg w-full h-full object-contain p-4">
                 </div>
-                <p class="text-base font-bold text-plum">R$&nbsp;109,00</p>
+                <p class="text-[12px] font-semibold text-plum leading-snug mb-1">Dewy Setting Spray</p>
+                <div class="flex items-center gap-0.5 text-gold text-[10px] mb-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span class="text-muted ml-1 text-[10px]">(412)</span></div>
+                <p class="text-[14px] font-bold text-plum">R$&nbsp;49,00</p>
             </div>
 
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     3-COLUMN PROMO BANNERS
-═══════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════
+     2-COLUMN PROMO BANNERS
+══════════════════════════════════════════════ -->
 <section class="w-full">
-    <div class="flex flex-col md:flex-row h-auto md:h-[360px]">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-10 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-        <!-- Banner 1: Rose + Model -->
-        <div class="w-full md:w-1/3 relative overflow-hidden h-[300px] md:h-full group">
-            <img src="images/hero.jpg" alt="Makeup" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/40 to-transparent flex flex-col justify-end p-7">
-                <p class="text-2xs font-bold tracking-[.2em] text-white/70 uppercase mb-2">Everyday Glow</p>
-                <h3 class="font-serif text-2xl text-white italic leading-tight mb-2">Flawless<br>Every Day</h3>
-                <p class="text-xs text-white/80 mb-5 leading-relaxed">Lightweight. Buildable.<br>You, but better.</p>
-                <a href="#" class="inline-block border border-white text-white text-2xs font-bold uppercase tracking-widest px-5 py-2 hover:bg-white hover:text-primary transition-colors w-fit">
-                    Shop Makeup
-                </a>
+            <!-- Banner A: Sale -->
+            <div class="relative rounded-xl overflow-hidden h-[280px] bg-blush flex items-center">
+                <div class="absolute inset-0">
+                    <img src="images/hero_new.jpg" alt="Sale" class="w-full h-full object-cover object-right opacity-50">
+                </div>
+                <div class="relative z-10 px-10 py-8">
+                    <p class="text-[10px] font-bold tracking-[.25em] text-primary uppercase mb-2">Oferta por Tempo Limitado</p>
+                    <h3 class="serif text-[32px] text-plum font-bold leading-tight mb-2">Até 20% OFF<br>Sitewide</h3>
+                    <p class="text-[13px] text-muted mb-5 leading-relaxed max-w-xs">Eleve sua rotina de beleza<br>com nossos best-sellers.</p>
+                    <a href="#" class="inline-block bg-plum hover:bg-charcoal text-white text-[11px] font-bold uppercase tracking-widest px-6 py-2.5 transition-colors">
+                        Shop the Sale
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <!-- Banner 2: Nude + Product -->
-        <div class="w-full md:w-1/3 relative overflow-hidden h-[300px] md:h-full group">
-            <img src="images/promo.jpg" alt="Skincare" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-nude/90 via-nude/50 to-transparent flex flex-col justify-end p-7">
-                <p class="text-2xs font-bold tracking-[.2em] text-primary uppercase mb-2">Science-Backed</p>
-                <h3 class="font-serif text-2xl text-plum italic leading-tight mb-2">Skin That<br>Glows</h3>
-                <p class="text-xs text-muted mb-5 leading-relaxed">Science-backed skincare<br>for radiant results.</p>
-                <a href="#" class="inline-block border border-plum text-plum text-2xs font-bold uppercase tracking-widest px-5 py-2 hover:bg-plum hover:text-white transition-colors w-fit">
-                    Shop Skincare
-                </a>
+            <!-- Banner B: Rewards -->
+            <div class="relative rounded-xl overflow-hidden h-[280px] bg-plum flex items-center">
+                <div class="absolute inset-0 opacity-20">
+                    <img src="images/promo.jpg" alt="Rewards" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 px-10 py-8">
+                    <p class="text-[10px] font-bold tracking-[.25em] text-soft-pink uppercase mb-2">Velvetique Rewards</p>
+                    <h3 class="serif text-[28px] text-white font-bold leading-tight mb-2">Beleza.<br>Recompensas.<br><span class="italic text-soft-pink">Exclusivamente Suas.</span></h3>
+                    <p class="text-[12px] text-white/70 mb-5 leading-relaxed">Ganhe pontos, desbloqueie vantagens<br>e aproveite ofertas especiais.</p>
+                    <a href="#" class="inline-block bg-primary hover:bg-primary-dark text-white text-[11px] font-bold uppercase tracking-widest px-6 py-2.5 transition-colors">
+                        Participar Agora
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <!-- Banner 3: Dark + Gift -->
-        <div class="w-full md:w-1/3 relative overflow-hidden h-[300px] md:h-full group">
-            <img src="images/prod3.jpg" alt="Gift Sets" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-plum/85 via-plum/40 to-transparent flex flex-col justify-end p-7">
-                <p class="text-2xs font-bold tracking-[.2em] text-white/60 uppercase mb-2">Limited Edition</p>
-                <h3 class="font-serif text-2xl text-white italic leading-tight mb-2">Limited Edition<br>Gift Sets</h3>
-                <p class="text-xs text-white/75 mb-5 leading-relaxed">Beautifully wrapped.<br>Perfectly yours.</p>
-                <a href="#" class="inline-block border border-white text-white text-2xs font-bold uppercase tracking-widest px-5 py-2 hover:bg-white hover:text-plum transition-colors w-fit">
-                    Shop Gift Sets
-                </a>
-            </div>
         </div>
-
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     TESTIMONIAL + LIFESTYLE PHOTOS
-═══════════════════════════════════════════ -->
-<section class="bg-nude py-14">
+<!-- ══════════════════════════════════════════════
+     NEWSLETTER STRIP
+══════════════════════════════════════════════ -->
+<section class="bg-soft-pink border-y border-pink-100 py-7">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div class="flex items-center gap-4">
+            <i class="fas fa-envelope text-primary text-2xl"></i>
+            <div>
+                <p class="text-[13px] font-black text-plum uppercase tracking-wider">Fique Por Dentro</p>
+                <p class="text-[11px] text-muted">Ofertas exclusivas, novidades e dicas de beleza.</p>
+            </div>
+        </div>
+        <form class="flex w-full md:w-auto gap-0">
+            <input type="email" placeholder="Digite seu e-mail" class="flex-grow md:w-72 bg-white border border-gray-200 text-plum placeholder-gray-400 text-[12px] px-4 py-2.5 focus:outline-none focus:border-primary min-w-0">
+            <button type="submit" class="bg-primary hover:bg-primary-dark text-white text-[11px] font-bold uppercase tracking-widest px-6 py-2.5 transition-colors flex-shrink-0">
+                Inscrever
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="bg-white border-t border-gray-100 pt-14 pb-6">
     <div class="max-w-screen-xl mx-auto px-6 lg:px-10">
-        <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
 
-            <!-- Quote -->
-            <div class="w-full lg:w-[28%] flex-shrink-0">
-                <div class="text-primary text-5xl font-serif leading-none mb-3">"</div>
-                <p class="font-serif text-lg text-plum italic leading-relaxed mb-4">
-                    Velvetique Beauty completely changed my skincare routine. The quality is amazing!
-                </p>
-                <p class="text-sm font-semibold text-muted">— Sophia M.</p>
-            </div>
+        <!-- 5-column links grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
 
-            <!-- 5 Lifestyle Photos -->
-            <div class="w-full lg:flex-1 grid grid-cols-5 gap-3">
-                <div class="aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=220&q=80" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"></div>
-                <div class="aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=220&q=80" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"></div>
-                <div class="aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=220&q=80" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"></div>
-                <div class="aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=220&q=80" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"></div>
-                <div class="aspect-square rounded-lg overflow-hidden"><img src="https://images.unsplash.com/photo-1583209814683-c023dd293cc6?w=220&q=80" alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"></div>
-            </div>
-
-            <!-- Follow CTA -->
-            <div class="w-full lg:w-[18%] flex-shrink-0 flex flex-col items-center lg:items-start gap-4">
-                <p class="text-sm font-black text-plum uppercase tracking-wider text-center lg:text-left leading-snug">Join 50K+<br>Happy Customers</p>
-                <a href="#" class="bg-plum hover:bg-charcoal text-white text-xs font-bold uppercase tracking-widest px-6 py-3 transition-colors">
-                    Follow Us
-                </a>
-                <div class="flex gap-4 text-lg text-muted">
+            <!-- Col 1: Brand -->
+            <div class="col-span-2 md:col-span-3 lg:col-span-1">
+                <div class="serif text-xl font-bold tracking-[.1em] text-plum leading-none mb-0.5">VELVETIQUE</div>
+                <div class="text-[7px] tracking-[.45em] text-muted mb-4">BEAUTY</div>
+                <p class="text-[12px] text-muted leading-relaxed mb-5">Cosméticos de alta performance criados para realçar a sua beleza natural. Cada produto, uma promessa de excelência.</p>
+                <div class="flex gap-4 text-lg text-muted mb-5">
                     <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-youtube"></i></a>
                     <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-pinterest-p"></i></a>
                 </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     GUARANTEES BAR
-═══════════════════════════════════════════ -->
-<section class="bg-white border-t border-gray-100 py-8">
-    <div class="max-w-screen-xl mx-auto px-6 lg:px-10">
-        <div class="flex flex-wrap justify-center lg:justify-between items-center gap-8">
-            <div class="flex items-center gap-3.5">
-                <i class="fas fa-truck text-plum text-2xl w-7 text-center"></i>
-                <div><div class="text-sm font-bold text-plum">Free Shipping</div><div class="text-2xs text-muted mt-0.5">On orders over R$&nbsp;199</div></div>
-            </div>
-            <div class="flex items-center gap-3.5">
-                <i class="fas fa-undo-alt text-plum text-2xl w-7 text-center"></i>
-                <div><div class="text-sm font-bold text-plum">Easy Returns</div><div class="text-2xs text-muted mt-0.5">30-day return policy</div></div>
-            </div>
-            <div class="flex items-center gap-3.5">
-                <i class="fas fa-lock text-plum text-2xl w-7 text-center"></i>
-                <div><div class="text-sm font-bold text-plum">Secure Payments</div><div class="text-2xs text-muted mt-0.5">100% safe &amp; secure</div></div>
-            </div>
-            <div class="flex items-center gap-3.5">
-                <i class="fas fa-star text-plum text-2xl w-7 text-center"></i>
-                <div><div class="text-sm font-bold text-plum">Exclusive Offers</div><div class="text-2xs text-muted mt-0.5">Join our beauty club</div></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════ -->
-<footer>
-    <!-- Newsletter + Links (Primary Rose) -->
-    <div class="bg-primary py-10">
-        <div class="max-w-screen-xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
-
-            <!-- Newsletter -->
-            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 lg:max-w-lg">
-                <div class="flex-shrink-0">
-                    <p class="text-xs font-black text-white uppercase tracking-widest mb-1">Be the First to Know</p>
-                    <p class="text-2xs text-white/70">Exclusive offers, new arrivals &amp; beauty tips.</p>
+                <!-- Contact -->
+                <div class="space-y-2 text-[11px] text-muted">
+                    <div><i class="fas fa-envelope w-4 text-primary mr-1"></i> contato@velvetique.com.br</div>
+                    <div><i class="fas fa-phone w-4 text-primary mr-1"></i> (11) 3456-7890</div>
+                    <div><i class="fab fa-whatsapp w-4 text-primary mr-1"></i> (11) 99876-5432</div>
+                    <div><i class="fas fa-map-marker-alt w-4 text-primary mr-1"></i> Av. Paulista, 1000 — São Paulo, SP</div>
                 </div>
-                <form class="flex w-full sm:w-auto">
-                    <input type="email" placeholder="Enter your email address"
-                           class="flex-grow sm:w-52 bg-white/15 border border-white/30 text-white placeholder-white/50 text-xs px-4 py-2.5 focus:outline-none focus:bg-white/25 min-w-0">
-                    <button type="submit"
-                            class="bg-plum hover:bg-charcoal text-white text-2xs font-bold uppercase tracking-widest px-5 py-2.5 transition-colors flex-shrink-0">
-                        Subscribe
-                    </button>
-                </form>
             </div>
 
-            <!-- Links + Logo -->
-            <div class="flex flex-wrap gap-10 items-start">
-                <div>
-                    <p class="text-2xs font-bold text-white/50 uppercase tracking-widest mb-3">Help</p>
-                    <ul class="space-y-2 text-xs text-white/80">
-                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Shipping</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Returns</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-2xs font-bold text-white/50 uppercase tracking-widest mb-3">About</p>
-                    <ul class="space-y-2 text-xs text-white/80">
-                        <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-2xs font-bold text-white/50 uppercase tracking-widest mb-3">Account</p>
-                    <ul class="space-y-2 text-xs text-white/80">
-                        <li><a href="#" class="hover:text-white transition-colors">Login</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">My Orders</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Wishlist</a></li>
-                    </ul>
-                </div>
-                <!-- Logo mark -->
-                <div class="hidden lg:block text-right border-l border-white/20 pl-10">
-                    <div class="font-serif text-xl font-bold tracking-[.1em] text-white leading-none">VELVETIQUE</div>
-                    <div class="text-[7px] tracking-[.45em] text-white/50 text-center mt-1">BEAUTY</div>
+            <!-- Col 2: Shop -->
+            <div>
+                <h4 class="text-[11px] font-black text-plum uppercase tracking-[.2em] mb-4">Loja</h4>
+                <ul class="space-y-2.5 text-[12px] text-muted">
+                    <li><a href="#" class="hover:text-primary transition-colors">Novidades</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Makeup</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Skincare</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Lábios</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Fragrâncias</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Pincéis &amp; Acessórios</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Ofertas &amp; Sale</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Customer Care -->
+            <div>
+                <h4 class="text-[11px] font-black text-plum uppercase tracking-[.2em] mb-4">Atendimento</h4>
+                <ul class="space-y-2.5 text-[12px] text-muted">
+                    <li><a href="#" class="hover:text-primary transition-colors">Central de Ajuda</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Política de Envio</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Trocas e Devoluções</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Rastrear Pedido</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Fale Conosco</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: About -->
+            <div>
+                <h4 class="text-[11px] font-black text-plum uppercase tracking-[.2em] mb-4">A Marca</h4>
+                <ul class="space-y-2.5 text-[12px] text-muted">
+                    <li><a href="#" class="hover:text-primary transition-colors">Nossa História</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Ingredientes Limpos</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Sustentabilidade</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Blog de Beleza</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Imprensa</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Trabalhe Conosco</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 5: Legal + Payments -->
+            <div>
+                <h4 class="text-[11px] font-black text-plum uppercase tracking-[.2em] mb-4">Legal</h4>
+                <ul class="space-y-2.5 text-[12px] text-muted mb-6">
+                    <li><button onclick="openModal('modal-privacy')" class="hover:text-primary transition-colors text-left">Política de Privacidade</button></li>
+                    <li><button onclick="openModal('modal-terms')" class="hover:text-primary transition-colors text-left">Termos de Uso</button></li>
+                    <li><button onclick="openModal('modal-cookies')" class="hover:text-primary transition-colors text-left">Política de Cookies</button></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">LGPD</a></li>
+                </ul>
+                <!-- Payments -->
+                <h4 class="text-[11px] font-black text-plum uppercase tracking-[.2em] mb-3">Pagamentos</h4>
+                <div class="flex flex-wrap gap-2 text-2xl text-gray-400">
+                    <i class="fab fa-cc-visa hover:text-plum cursor-pointer transition-colors" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard hover:text-plum cursor-pointer transition-colors" title="Mastercard"></i>
+                    <i class="fab fa-cc-paypal hover:text-plum cursor-pointer transition-colors" title="PayPal"></i>
+                    <i class="fab fa-pix hover:text-plum cursor-pointer transition-colors" title="Pix"></i>
                 </div>
             </div>
 
         </div>
-    </div>
 
-    <!-- Bottom Bar -->
-    <div class="bg-plum py-4">
-        <div class="max-w-screen-xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p class="text-xs text-gray-400">© 2026 Velvetique Beauty. Todos os direitos reservados.</p>
-            <div class="flex items-center gap-3 text-gray-400 text-xl">
-                <i class="fab fa-cc-visa hover:text-white cursor-pointer transition-colors"></i>
-                <i class="fab fa-cc-mastercard hover:text-white cursor-pointer transition-colors"></i>
-                <i class="fab fa-pix hover:text-white cursor-pointer transition-colors"></i>
-                <i class="fas fa-barcode hover:text-white cursor-pointer transition-colors"></i>
+        <!-- Bottom bar -->
+        <div class="border-t border-gray-100 pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-muted">
+            <p>© 2026 Velvetique Beauty LTDA — CNPJ 12.345.678/0001-90 — Todos os direitos reservados.</p>
+            <div class="flex gap-4">
+                <button onclick="openModal('modal-privacy')" class="hover:text-primary transition-colors">Privacidade</button>
+                <button onclick="openModal('modal-terms')" class="hover:text-primary transition-colors">Termos</button>
+                <button onclick="openModal('modal-cookies')" class="hover:text-primary transition-colors">Cookies</button>
             </div>
         </div>
+
     </div>
 </footer>
+
+<!-- ══════════════════════════════════════════════
+     MODAL: POLÍTICA DE PRIVACIDADE
+══════════════════════════════════════════════ -->
+<div id="modal-privacy" class="modal" onclick="if(event.target===this)closeModal('modal-privacy')">
+    <div class="modal-box">
+        <button onclick="closeModal('modal-privacy')" class="absolute top-4 right-5 text-muted hover:text-plum text-xl"><i class="fas fa-times"></i></button>
+        <h2 class="serif text-2xl font-bold text-plum mb-1">Política de Privacidade</h2>
+        <p class="text-[11px] text-muted mb-5">Última atualização: 1º de janeiro de 2026</p>
+        <div class="text-[13px] text-charcoal leading-relaxed space-y-4 max-h-[65vh] overflow-y-auto pr-2">
+            <p><strong>1. Quem somos</strong><br>A <em>Velvetique Beauty LTDA</em>, inscrita no CNPJ 12.345.678/0001-90, com sede na Av. Paulista, 1000 — São Paulo/SP, é responsável pelo tratamento dos seus dados pessoais.</p>
+            <p><strong>2. Dados que coletamos</strong><br>Coletamos nome completo, e-mail, CPF, endereço de entrega, telefone e dados de pagamento (processados por gateways certificados PCI-DSS). Também coletamos dados de navegação como IP, cookies e páginas visitadas para fins de análise e melhoria do serviço.</p>
+            <p><strong>3. Finalidade do tratamento</strong><br>Os dados são utilizados para: (i) processamento de pedidos e entregas; (ii) comunicação de promoções e novidades (com seu consentimento); (iii) melhoria da experiência de navegação; (iv) cumprimento de obrigações legais e fiscais.</p>
+            <p><strong>4. Compartilhamento de dados</strong><br>Podemos compartilhar seus dados com parceiros logísticos (transportadoras), processadores de pagamento e plataformas de análise de marketing, sempre sob acordos de confidencialidade e nos limites da lei.</p>
+            <p><strong>5. Seus direitos (LGPD)</strong><br>Você tem direito a confirmar a existência de tratamento, acessar, corrigir, anonimizar, bloquear, eliminar ou exportar seus dados. Para exercer esses direitos, entre em contato pelo e-mail <strong>privacidade@velvetique.com.br</strong>.</p>
+            <p><strong>6. Segurança</strong><br>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+            <p><strong>7. Retenção de dados</strong><br>Mantemos seus dados pelo tempo necessário para cumprir as finalidades descritas ou obrigações legais, podendo ser excluídos mediante solicitação.</p>
+            <p><strong>8. Contato do Encarregado (DPO)</strong><br>Ana Clara Mendes — dpo@velvetique.com.br — (11) 3456-7891</p>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     MODAL: TERMOS DE USO
+══════════════════════════════════════════════ -->
+<div id="modal-terms" class="modal" onclick="if(event.target===this)closeModal('modal-terms')">
+    <div class="modal-box">
+        <button onclick="closeModal('modal-terms')" class="absolute top-4 right-5 text-muted hover:text-plum text-xl"><i class="fas fa-times"></i></button>
+        <h2 class="serif text-2xl font-bold text-plum mb-1">Termos de Uso</h2>
+        <p class="text-[11px] text-muted mb-5">Última atualização: 1º de janeiro de 2026</p>
+        <div class="text-[13px] text-charcoal leading-relaxed space-y-4 max-h-[65vh] overflow-y-auto pr-2">
+            <p><strong>1. Aceitação dos Termos</strong><br>Ao acessar e utilizar o site velvetique.com.br, você declara que leu, compreendeu e concorda com estes Termos de Uso. Caso não concorde, pedimos que não utilize nossos serviços.</p>
+            <p><strong>2. Elegibilidade</strong><br>Nosso site é destinado a maiores de 18 anos. Menores de 18 anos devem realizar compras com a supervisão de um responsável legal.</p>
+            <p><strong>3. Cadastro e Conta</strong><br>Para realizar compras, você poderá criar uma conta fornecendo dados verídicos e atualizados. Você é responsável pela confidencialidade de sua senha e por todas as atividades realizadas em sua conta.</p>
+            <p><strong>4. Pedidos e Pagamentos</strong><br>Todos os preços são expressos em Reais (BRL) e incluem impostos aplicáveis. Reservamo-nos o direito de cancelar pedidos em caso de erro de preço, indisponibilidade de estoque ou suspeita de fraude.</p>
+            <p><strong>5. Entrega</strong><br>Os prazos de entrega são estimados e podem variar conforme a região. O frete grátis aplica-se a pedidos acima de R$&nbsp;199 para endereços em território nacional.</p>
+            <p><strong>6. Trocas e Devoluções</strong><br>Produtos podem ser devolvidos no prazo de 30 dias corridos após o recebimento, desde que estejam lacrados, na embalagem original e sem sinais de uso. Para produtos com defeito, o prazo segue o Código de Defesa do Consumidor.</p>
+            <p><strong>7. Propriedade Intelectual</strong><br>Todo o conteúdo do site (textos, imagens, logotipos, layouts) é de propriedade exclusiva da Velvetique Beauty e protegido por leis de direitos autorais. É vedada a reprodução sem autorização prévia e por escrito.</p>
+            <p><strong>8. Limitação de Responsabilidade</strong><br>A Velvetique Beauty não se responsabiliza por danos indiretos, incidentais ou consequentes decorrentes do uso ou impossibilidade de uso dos serviços.</p>
+            <p><strong>9. Foro</strong><br>Estes Termos são regidos pelas leis brasileiras. Fica eleito o foro da Comarca de São Paulo/SP para dirimir quaisquer controvérsias.</p>
+            <p><strong>10. Contato</strong><br>termos@velvetique.com.br | (11) 3456-7890</p>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     MODAL: POLÍTICA DE COOKIES
+══════════════════════════════════════════════ -->
+<div id="modal-cookies" class="modal" onclick="if(event.target===this)closeModal('modal-cookies')">
+    <div class="modal-box">
+        <button onclick="closeModal('modal-cookies')" class="absolute top-4 right-5 text-muted hover:text-plum text-xl"><i class="fas fa-times"></i></button>
+        <h2 class="serif text-2xl font-bold text-plum mb-1">Política de Cookies</h2>
+        <p class="text-[11px] text-muted mb-5">Última atualização: 1º de janeiro de 2026</p>
+        <div class="text-[13px] text-charcoal leading-relaxed space-y-4 max-h-[65vh] overflow-y-auto pr-2">
+            <p><strong>1. O que são Cookies</strong><br>Cookies são pequenos arquivos de texto armazenados no seu dispositivo ao navegar em sites. Eles nos ajudam a reconhecer seu dispositivo e a melhorar sua experiência de navegação.</p>
+            <p><strong>2. Tipos de Cookies que utilizamos</strong></p>
+            <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Cookies Essenciais:</strong> Necessários para o funcionamento básico do site (carrinho de compras, autenticação). Não podem ser desativados.</li>
+                <li><strong>Cookies de Desempenho:</strong> Coletam dados anônimos sobre como os visitantes usam o site (ex: Google Analytics). Nos ajudam a melhorar o site.</li>
+                <li><strong>Cookies de Funcionalidade:</strong> Lembram suas preferências (idioma, moeda, histórico de buscas) para personalizar sua experiência.</li>
+                <li><strong>Cookies de Marketing:</strong> Usados para exibir anúncios relevantes e medir a eficácia de campanhas publicitárias (ex: Meta Pixel).</li>
+            </ul>
+            <p><strong>3. Como gerenciar Cookies</strong><br>Você pode controlar e/ou excluir cookies nas configurações do seu navegador. Note que desativar certos cookies pode afetar a funcionalidade do site. Para ajustar suas preferências em nossa plataforma, clique no ícone de configurações de cookies no rodapé.</p>
+            <p><strong>4. Cookies de Terceiros</strong><br>Utilizamos serviços de terceiros que podem instalar seus próprios cookies: Google Analytics, Google Ads, Meta Pixel, Hotjar. Consulte as políticas de privacidade dessas empresas para mais detalhes.</p>
+            <p><strong>5. Retenção</strong><br>Cookies de sessão são excluídos ao fechar o navegador. Cookies persistentes têm prazo de validade variável (geralmente até 12 meses).</p>
+            <p><strong>6. Contato</strong><br>Para dúvidas sobre nossa política de cookies: cookies@velvetique.com.br</p>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     COOKIE CONSENT BAR
+══════════════════════════════════════════════ -->
+<div id="cookie-bar" class="show fixed bottom-0 left-0 right-0 bg-plum text-white z-50 px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+    <div class="flex items-start gap-3">
+        <i class="fas fa-cookie-bite text-primary text-xl mt-0.5 flex-shrink-0"></i>
+        <p class="text-[12px] leading-relaxed">
+            Utilizamos cookies para melhorar sua experiência, analisar tráfego e personalizar conteúdo. Ao continuar navegando, você concorda com nossa
+            <button onclick="openModal('modal-cookies')" class="underline text-soft-pink hover:text-white">Política de Cookies</button>
+            e nossa <button onclick="openModal('modal-privacy')" class="underline text-soft-pink hover:text-white">Política de Privacidade</button>.
+        </p>
+    </div>
+    <div class="flex gap-3 flex-shrink-0">
+        <button onclick="document.getElementById('cookie-bar').style.display='none'" class="border border-white/40 text-white hover:bg-white/10 text-[11px] font-bold uppercase tracking-widest px-5 py-2 transition-colors">
+            Apenas Essenciais
+        </button>
+        <button onclick="document.getElementById('cookie-bar').style.display='none'" class="bg-primary hover:bg-primary-dark text-white text-[11px] font-bold uppercase tracking-widest px-5 py-2 transition-colors">
+            Aceitar Todos
+        </button>
+    </div>
+</div>
+
+<script>
+    function openModal(id) {
+        document.getElementById(id).classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+        document.getElementById(id).classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            ['modal-privacy','modal-terms','modal-cookies'].forEach(closeModal);
+        }
+    });
+</script>
 
 </body>
 </html>
